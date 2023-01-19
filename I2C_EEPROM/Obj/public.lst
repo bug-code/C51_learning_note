@@ -1,0 +1,13 @@
+C51 COMPILER V9.01   PUBLIC                                                                07/13/2022 15:11:58 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PUBLIC
+OBJECT MODULE PLACED IN .\Obj\public.obj
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE Public\public.c BROWSE INCDIR(.\App\24c02;.\App\iic;.\App\key;.\App\smg;.\P
+                    -ublic;.\App\func_test) DEBUG OBJECTEXTEND PRINT(.\Obj\public.lst) OBJECT(.\Obj\public.obj)
+
+line level    source
+
+*** ERROR C318 OF Public\public.c: can't open file 'Public\public.c'
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

@@ -1,0 +1,65 @@
+C51 COMPILER V9.01   INTER0                                                                06/10/2022 17:56:00 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE INTER0
+OBJECT MODULE PLACED IN Inter0.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE Inter0.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "interrupt_utils.h"
+   2          #include "StopWatch.h"
+   3          sbit k1=P3^1;
+   4          sbit k3=P3^2;
+   5          sbit BEEP = P2^5 ;
+   6          static int _50ms=0;
+   7          void main(){
+   8   1              
+   9   1              Int0_Init(1);//外部中断0初始化
+  10   1              Timer0_Init(0x01 , 0x2c , 0x16);//定时器中断0初始化
+  11   1              while(1){
+  12   2                      Show();
+  13   2              }       
+  14   1      }
+  15          
+  16          void Int0_Routine(void) interrupt 0{//K3外部中断，终止计数，显示数值
+  17   1              while(1){
+  18   2                      Show();
+  19   2                      if(k1==0){//外部按键清0
+  20   3                              ClearBuffer();
+  21   3                              break;
+  22   3                      }       
+  23   2              }       
+  24   1      }
+  25          void Timer0_Routine(void) interrupt 1{ //定时器中断0，秒表计数
+  26   1              ++_50ms;
+  27   1              if(_50ms==20){//中断一次50ms,中断20次1s
+  28   2                      BEEP = !BEEP;//中断同时蜂鸣器响应
+  29   2                      ++Second;
+  30   2                      _50ms =0;
+  31   2                      if(Second==60){
+  32   3                              ++Min;
+  33   3                              Second=0;
+  34   3                              if(Min==60){
+  35   4                                      ++Hour;
+  36   4                                      Min=0;
+  37   4                              }
+  38   3                      }
+  39   2              }
+  40   1                      
+  41   1               
+  42   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    548    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     54      18
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,64 @@
+C51 COMPILER V9.01   DIGIT_DISPLAY                                                         07/13/2022 16:57:38 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE DIGIT_DISPLAY
+OBJECT MODULE PLACED IN .\Obj\digit_display.obj
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE App\smg\digit_display.c BROWSE INCDIR(.\App\24c02;.\App\iic;.\App\key;.\App
+                    -\smg;.\Public;.\App\func_test) DEBUG OBJECTEXTEND PRINT(.\Obj\digit_display.lst) OBJECT(.\Obj\digit_display.obj)
+
+line level    source
+
+   1          #include "digit_display.h"
+   2          
+   3          unsigned char display[] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,
+   4                                            0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x00};
+   5          
+   6          //选择数码管
+   7          void choose_digit_tube(const unsigned char i){
+   8   1              if(i>0&&i<9){
+   9   2                      switch(i){
+  10   3                              case 1: P24=1;P23=1;P22=1;break;
+  11   3                              case 2: P24=1;P23=1;P22=0;break;
+  12   3                              case 3: P24=1;P23=0;P22=1;break;
+  13   3                              case 4: P24=1;P23=0;P22=0;break;
+  14   3                              case 5: P24=0;P23=1;P22=1;break;
+  15   3                              case 6: P24=0;P23=1;P22=0;break;
+  16   3                              case 7: P24=0;P23=0;P22=1;break;
+  17   3                              case 8: P24=0;P23=0;P22=0;break;
+  18   3                      }       
+  19   2              }
+  20   1      }
+  21          
+  22          //数码管显示
+  23          void digit_tube_show(const unsigned char dat){
+  24   1      
+  25   1              P0=dat;
+  26   1              delay_10us(100);
+  27   1              P0=0x00; //消影
+  28   1      }
+  29          
+  30          //选择数码管并显示
+  31          void choose_and_show(const unsigned char beg,const unsigned char end,
+  32                                                   const unsigned char step ,  unsigned char arr_dat[]){
+  33   1              unsigned char i;
+  34   1              unsigned char j;
+  35   1              for(i=beg , j=0 ; i<end ; i+=step){
+  36   2                      choose_digit_tube(i);
+  37   2                      digit_tube_show(display[arr_dat[j++]]);
+  38   2              }                                        
+  39   1      }
+  40          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    169    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     17       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

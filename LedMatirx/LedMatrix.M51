@@ -1,0 +1,187 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        06/04/2022  11:21:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE LedMatrix.obj TO LedMatrix RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  LedMatrix.obj (LEDMATRIX)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?COPY)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+
+
+LINK MAP OF MODULE:  LedMatrix (LEDMATRIX)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0059H     UNIT         _DATA_GROUP_
+            IDATA   0061H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0135H     UNIT         ?C?LIB_CODE
+            CODE    0138H     005FH     UNIT         ?PR?_SHOW_PIC?LEDMATRIX
+            CODE    0197H     0050H     UNIT         ?CO?LEDMATRIX
+            CODE    01E7H     0048H     UNIT         ?PR?MAIN?LEDMATRIX
+            CODE    022FH     002EH     UNIT         ?PR?_WRITE_2_HC595?LEDMATRIX
+            CODE    025DH     0012H     UNIT         ?PR?_DELAY_1MS?LEDMATRIX
+            CODE    026FH     000FH     UNIT         ?PR?_DELAY_10US?LEDMATRIX
+            CODE    027EH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   LedMatrix (LEDMATRIX)
+
+
+SEGMENT                                DATA_GROUP 
+  +--> CALLED SEGMENT                START    LENGTH
+----------------------------------------------------
+?C_C51STARTUP                        -----    -----
+  +--> ?PR?MAIN?LEDMATRIX
+
+?PR?MAIN?LEDMATRIX                   0008H    0052H
+  +--> ?CO?LEDMATRIX
+  +--> ?PR?_DELAY_1MS?LEDMATRIX
+  +--> ?PR?_SHOW_PIC?LEDMATRIX
+
+?PR?_SHOW_PIC?LEDMATRIX              005AH    0007H
+  +--> ?PR?_WRITE_2_HC595?LEDMATRIX
+  +--> ?PR?_DELAY_10US?LEDMATRIX
+
+?PR?_WRITE_2_HC595?LEDMATRIX         -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/04/2022  11:21:42  PAGE 2
+
+
+  +--> ?PR?_DELAY_10US?LEDMATRIX
+
+
+
+SYMBOL TABLE OF MODULE:  LedMatrix (LEDMATRIX)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LEDMATRIX
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  C:025DH         PUBLIC        _delay_1ms
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:01E7H         PUBLIC        main
+  B:00B0H.6       PUBLIC        SHCP
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00B0H.5       PUBLIC        STCP
+  C:0273H         PUBLIC        _delay_10us
+  C:0197H         SYMBOL        _?ix1000
+  C:022FH         PUBLIC        _Write_2_Hc595
+  C:0138H         PUBLIC        _show_pic
+  D:00C8H         PUBLIC        T2CON
+  B:00B0H.4       PUBLIC        SER
+  D:00D0H         PUBLIC        PSW
+  C:026FH         SYMBOL        L?0032
+  -------         PROC          L?0031
+  -------         ENDPROC       L?0031
+  C:026FH         SYMBOL        L?0032
+  -------         PROC          _DELAY_10US
+  D:0006H         SYMBOL        _10us
+  C:0273H         LINE#         7
+  C:0273H         LINE#         8
+  C:027DH         LINE#         9
+  -------         ENDPROC       _DELAY_10US
+  -------         PROC          _DELAY_1MS
+  D:0006H         SYMBOL        _1ms
+  C:025DH         LINE#         12
+  C:025DH         LINE#         13
+  C:0264H         LINE#         14
+  C:026EH         LINE#         15
+  C:026EH         LINE#         16
+  -------         ENDPROC       _DELAY_1MS
+  -------         PROC          _WRITE_2_HC595
+  D:0005H         SYMBOL        dat
+  -------         DO            
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:022FH         LINE#         11
+  C:0231H         LINE#         13
+  C:0234H         LINE#         15
+  C:023FH         LINE#         17
+  C:0243H         LINE#         19
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/04/2022  11:21:42  PAGE 3
+
+
+  C:0245H         LINE#         20
+  C:0248H         LINE#         21
+  C:024AH         LINE#         24
+  C:0255H         LINE#         26
+  C:0257H         LINE#         27
+  C:025AH         LINE#         28
+  C:025CH         LINE#         29
+  -------         ENDPROC       _WRITE_2_HC595
+  -------         PROC          _SHOW_PIC
+  D:005AH         SYMBOL        pic
+  -------         DO            
+  D:005DH         SYMBOL        j
+  -------         DO            
+  D:005FH         SYMBOL        i
+  -------         ENDDO         
+  -------         ENDDO         
+  C:0138H         LINE#         32
+  C:013EH         LINE#         33
+  C:0144H         LINE#         34
+  C:0151H         LINE#         36
+  C:0161H         LINE#         37
+  C:0171H         LINE#         39
+  C:0184H         LINE#         42
+  C:0187H         LINE#         43
+  C:018CH         LINE#         45
+  C:0196H         LINE#         46
+  C:0196H         LINE#         49
+  -------         ENDPROC       _SHOW_PIC
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        pic
+  -------         DO            
+  D:0058H         SYMBOL        i
+  -------         ENDDO         
+  -------         ENDDO         
+  C:01E7H         LINE#         3
+  C:01E7H         LINE#         4
+  C:01FAH         LINE#         18
+  C:01FAH         LINE#         20
+  C:01FFH         LINE#         21
+  C:0206H         LINE#         22
+  C:0215H         LINE#         23
+  C:021CH         LINE#         24
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LEDMATRIX
+
+  -------         MODULE        ?C?COPY
+  C:00D3H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?CLDOPTR
+  C:00F9H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?IMUL
+  C:0126H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/04/2022  11:21:42  PAGE 4
+
+
+
+Program Size: data=98.0 xdata=0 code=650
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

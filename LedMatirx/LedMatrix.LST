@@ -1,0 +1,50 @@
+C51 COMPILER V9.01   LEDMATRIX                                                             06/04/2022 11:21:42 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LEDMATRIX
+OBJECT MODULE PLACED IN LedMatrix.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE LedMatrix.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "Hc595_utils.h"
+   2          
+   3          void main(){
+   4   1              uchar pic[10][8]={{0x00,0x00,0x7E,0x10,0x10,0x1E,0x00,0x00},//h
+   5   1                                              {0x00,0x00,0x7C,0x54,0x54,0x74,0x00,0x00},//e
+   6   1                                              {0x00,0x00,0x79,0x09,0x09,0x7F,0x00,0x00},//y
+   7   1                                              
+   8   1                                              {0x00,0x00,0x7E,0x50,0x50,0x50,0x00,0x00},//f
+   9   1                                              {0x00,0x3C,0x02,0x02,0x02,0x3C,0x00,0x00},//u
+  10   1                                              {0x00,0x3C,0x42,0x42,0x42,0x42,0x00,0x00},//c
+  11   1                                              {0x00,0x00,0x7E,0x18,0x24,0x42,0x00,0x00}, //k
+  12   1                                              
+  13   1                                              {0x00,0x00,0x79,0x09,0x09,0x7F,0x00,0x00},//y
+  14   1                                              {0x00,0x3C,0x42,0x42,0x42,0x42,0x3C,0x00},//o
+  15   1                                              {0x00,0x3C,0x02,0x02,0x02,0x3C,0x00,0x00}//u
+  16   1                                              };
+  17   1              
+  18   1              while(1){
+  19   2                      uint i;
+  20   2                      for(i=0 ; i<10;++i){
+  21   3                              delay_1ms(100);
+  22   3                              show_pic(&(pic[i]));
+  23   3                              delay_1ms(100);
+  24   3                      }
+  25   2                      
+  26   2              }
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    246    ----
+   CONSTANT SIZE    =     80    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      89
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

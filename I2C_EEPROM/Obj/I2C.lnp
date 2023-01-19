@@ -1,0 +1,9 @@
+".\Obj\Individual_keys.obj",
+".\Obj\digit_display.obj",
+".\Obj\IIC.obj",
+".\Obj\24c02.obj",
+".\Obj\func_test.obj",
+".\Obj\main.obj",
+".\Obj\delay.obj" 
+TO ".\Obj\I2C" 
+PRINT(".\Obj\I2C.m51") RAMSIZE(256) 

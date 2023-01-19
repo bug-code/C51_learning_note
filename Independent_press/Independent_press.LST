@@ -1,0 +1,52 @@
+C51 COMPILER V9.01   INDEPENDENT_PRESS                                                     06/02/2022 10:58:09 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE INDEPENDENT_PRESS
+OBJECT MODULE PLACED IN Independent_press.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE Independent_press.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg52.h"
+   2           
+   3          typedef unsigned int uint;
+   4          typedef unsigned char uchar;
+   5          sbit Button1=P3^1;//K1
+   6          sbit Button2=P3^0;//K2
+   7          sbit Button3=P3^2;//k3
+   8          sbit Button4=P3^3;//K4
+   9          
+  10          sbit LED1 = P2^0;//LED1
+  11          sbit LED2 = P2^1;//LED2
+  12          sbit LED3 = P2^2;//LED3
+  13          sbit LED4 = P2^3;//LED4
+  14          
+  15          void delay(uint i){
+  16   1              while(i--){}
+  17   1      }
+  18          
+  19          void main(){
+  20   1              /*¼ì²â°´¼ü*/
+  21   1              while(1){
+  22   2                      delay(10000);
+  23   2                      if(!Button1) LED1=!LED1;
+  24   2                      if(!Button2) LED2=!LED2;
+  25   2                      if(!Button3) LED3=!LED3;
+  26   2                      if(!Button4) LED4=!LED4;
+  27   2                      delay(10000);
+  28   2              }
+  29   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     47    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

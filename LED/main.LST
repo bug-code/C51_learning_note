@@ -1,0 +1,87 @@
+C51 COMPILER V9.01   MAIN                                                                  05/30/2022 17:32:47 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE main.c DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "reg52.h"
+   2          #include "intrins.h"
+   3          typedef unsigned int uint;
+   4          typedef unsigned char uchar;
+   5          sbit LED0 = P2^0;
+   6          sbit LED1 = P2^1;
+   7          sbit LED2 = P2^2;
+   8          sbit LED3 = P2^3;
+   9          sbit LED4 = P2^4;
+  10          sbit LED5 = P2^5;
+  11          sbit LED6 = P2^6;
+  12          sbit LED7 = P2^7;
+  13          #define LED P2
+  14          
+  15          void delay(uint i){
+  16   1              while(i--){
+  17   2              }
+  18   1      }                                          
+  19          void main(){
+  20   1              while(1){
+  21   2               /*第一个LED闪烁*/
+  22   2                      /*LED0 = 0;
+  23   2                      delay(50000);
+  24   2                      LED0=1;
+  25   2                  delay(50000);*/
+  26   2      
+  27   2                      /*全部闪烁*/
+  28   2                      /*LED = 0xff;
+  29   2                      delay(50000);
+  30   2                      LED = 0x00;
+  31   2                      delay(50000);*/
+  32   2      
+  33   2                      
+  34   2                      uint i;
+  35   2                      /*流水灯,右流*/
+  36   2                      LED = 0xfe;
+  37   2                      for(i=0 ; i<7;++i){
+  38   3                              delay(10000);
+  39   3                              LED = _crol_(LED , 1);
+  40   3                              delay(10000);
+  41   3                      }
+  42   2                      
+  43   2                      /*流水灯，左流*/
+  44   2                      /*LED = 0x7f;*/  //循环流注释该行即可
+  45   2                      for(i=0 ; i<7;++i){
+  46   3                              delay(10000);
+  47   3                              LED = _cror_(LED , 1);
+  48   3                              delay(10000);
+  49   3                      }
+  50   2                       
+  51   2      
+  52   2                      /*摩斯密码，SB .../_... 
+  53   2                        不完美，需要用到多线程。前三个和后三个各自闪烁，每个灯各自线程控制，中间俩个灯常亮。
+  54   2                      */
+  55   2                      /*
+C51 COMPILER V9.01   MAIN                                                                  05/30/2022 17:32:47 PAGE 2   
+
+  56   2                      LED = 0xE7;
+  57   2                      delay(50000);
+  58   2                      LED = 0x00;
+  59   2                      delay(50000); */
+  60   2      
+  61   2              } 
+  62   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    102    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

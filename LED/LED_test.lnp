@@ -1,0 +1,3 @@
+"main.obj" 
+TO "LED_test" 
+RAMSIZE(256) 
