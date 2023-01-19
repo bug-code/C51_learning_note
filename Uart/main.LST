@@ -1,0 +1,42 @@
+C51 COMPILER V9.01   MAIN                                                                  06/24/2022 14:32:51 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "Uart_Init.h"
+   2          #include "Scan_Button.h"
+   3          /*
+   4                  1.由于暂时无合适的显示设备，所以将单片机接收到的信息返回给电脑显示。
+   5                  2.可以通过矩阵键盘输入信息，按独立按键k3进行发送
+   6          */
+   7          void main(){
+   8   1         Int0_Init(0);//外部中断0初始化
+   9   1         Uart_Init(0x20,0x50,0x80,0xFA);//串口中断初始化
+  10   1         while(1){
+  11   2                char cha;
+  12   2                cha=Scan_Button();
+  13   2                if(cha)
+  14   2                      Send_buffer[Send_Num++] = cha;
+  15   2         }
+  16   1      }
+  17          void Int0_Rountine() interrupt 0{ //按键矩阵输入完毕，按独立按键K3中断发送
+  18   1              Uart_Send_String();
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    498    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     38      29
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
