@@ -1,0 +1,7 @@
+"Individual_keys.obj",
+"digit_display.obj",
+"DS1302.obj",
+"delay.obj",
+"BCD_to_decimal.obj" 
+TO "DS1302" 
+PRINT(".\Obj\DS1302.m51") RAMSIZE(256) 

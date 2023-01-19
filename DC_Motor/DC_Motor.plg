@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\code\C51\DC_Motor\DC_Motor.uvproj
+Project File Date:  06/06/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling DC_Motor.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_INT1_INIT?DC_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_TIMER0_INIT?DC_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_TIMER1_INIT?DC_MOTOR
+Program Size: data=27.0 xdata=0 code=154
+creating hex file from "DC_Motor"...
+"DC_Motor" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling DC_Motor.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_INT1_INIT?DC_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_TIMER0_INIT?DC_MOTOR
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_TIMER1_INIT?DC_MOTOR
+Program Size: data=27.0 xdata=0 code=158
+creating hex file from "DC_Motor"...
+"DC_Motor" - 0 Error(s), 3 Warning(s).

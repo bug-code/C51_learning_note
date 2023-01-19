@@ -1,0 +1,1 @@
+"Public\BCD_to_decimal.c" BROWSE INCDIR(.\Public;.\User;.\App\DS1302;.\App\key;.\App\SMG) DEBUG OBJECTEXTEND PRINT(.\Obj\BCD_to_decimal.lst) OBJECT(BCD_to_decimal.obj)
